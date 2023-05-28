@@ -1,0 +1,100 @@
+.container{
+    width: 400px;
+    height: 600px;
+    background-color: #a9a6a6;
+    margin-top: 150px;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.display{
+    background-color: white;
+    width: 345px;
+    height: 150px;
+    border-radius: 6px;
+    border: 2px solid black;
+    font-size: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    .output{
+        display: block;
+        font-size: 48px;
+    }
+}
+
+.btnContainer{
+    width: 400px;
+    height: 80px;
+    background-color: #a9a6a6;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.big-btn{
+    width: 160px;
+    height: 60px;
+    border-radius: 6px;
+    font-size: 28px; 
+    border: 2px solid black;
+}
+.clear{
+    background-color: #faa;
+}
+.clear:hover{
+    background-color: #e99;
+    cursor: pointer;
+}
+.clear:active{
+    background-color: #d88;
+}
+.delete{
+    background-color: #aaf;
+}
+.delete:hover{
+    background-color: #99e;
+    cursor: pointer;
+}
+.delete:active{
+    background-color: #88d;
+}
+.dispContainer{
+    background-color: #a9a6a6;
+    width: 400px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+.numBtnContainer{
+    width: 400px;
+    height: 330px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.sml-btn{
+    width: 85px;
+    background-color: #eee;
+    height: 70px;
+    margin: 2px;
+    border-radius: 6px;
+    font-size: 42px;
+    border: 2px solid black;
+}
+.sml-btn:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+.sml-btn:active{
+    background-color: #ccc;
+}
