@@ -24,7 +24,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     overflow: auto;
-    .output{
+    #output{
         display: block;
         font-size: 48px;
     }
