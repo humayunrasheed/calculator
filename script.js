@@ -11,22 +11,30 @@ const multiply = function(num1, num2) {
 };
 
 const divide = function(num1, num2) {
+  if (num2 === 0) {
+    return "Invalid input";
+  }
   return num1 / num2;
 };
 
-let num1, num2;
-let operator = "";
+let num1 = 0;
+let num2 = null;
+let operator = null;
 
-const operate = function(num1, operator, num2) {
+const operate = function() {
   switch (operator) {
     case '*':
-      return multiply(num1, num2);
+      num1 = multiply(num1, num2);
+      break;
     case '+':
-      return add(num1, num2);
+      num1 = add(num1, num2);
+      break;
     case '-':
-      return subtract(num1, num2);
+      num1 = subtract(num1, num2);
+      break;
     case '/':
-      return divide(num1, num2);
+      num1 = divide(num1, num2);
+      break;
   }
 };
 
@@ -41,28 +49,35 @@ for (let i = 0; i < numberButtons.length; i++) {
     const number = this.textContent;
     inputElement.value += number;
     inputElement.textContent = inputElement.value;
+    if (operator === null) {
+      num1 = parseFloat(inputElement.value);
+    } else {
+      num2 = parseFloat(inputElement.value);
+    }
   });
 }
 
 const operatorButtons = document.getElementsByClassName("operator");
 for (let i = 0; i < operatorButtons.length; i++) {
   operatorButtons[i].addEventListener("click", function() {
+    if (num2 !== null) {
+      operate();
+    }
     operator = this.textContent;
-    num1 = parseFloat(inputElement.value);
     inputElement.value = "";
   });
 }
 
 const calculateButton = document.getElementById("calculate");
 calculateButton.addEventListener("click", function() {
-  num2 = parseFloat(inputElement.value);
-  const result = operate(num1, operator, num2);
-  if (isNaN(result)) {
-    resultElement.textContent = "Invalid input";
-  } else {
-    resultElement.textContent = result;
-    inputElement.value = result;
+  if (num2 !== null) {
+    operate();
+    num2 = null;
+    operator = null;
   }
+
+  resultElement.textContent = num1;
+  inputElement.value = num1;
 });
 
 const dotButton = document.getElementById("dot");
@@ -80,6 +95,9 @@ clearButton.addEventListener('click', function() {
   resultElement.value = "0";
   inputElement.value = "0";
   inputElement.textContent = inputElement.value;
+  num1 = 0;
+  num2 = null;
+  operator = null;
 });
 
 const deleteButton = document.getElementById('delete');
