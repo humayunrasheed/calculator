@@ -55,7 +55,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
 
 const calculateButton = document.getElementById("calculate");
 calculateButton.addEventListener("click", function() {
-  num2 = parseInt(inputElement.value, 10); // Convert to integer
+  num2 = parseFloat(inputElement.value);
   const result = operate(num1, operator, num2);
   if (isNaN(result)) {
     resultElement.textContent = "Invalid input";
