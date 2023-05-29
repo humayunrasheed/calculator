@@ -55,10 +55,14 @@ for (let i = 0; i < operatorButtons.length; i++) {
 
 const calculateButton = document.getElementById("calculate");
 calculateButton.addEventListener("click", function() {
-  num2 = parseFloat(inputElement.value);
+  num2 = parseInt(inputElement.value, 10); // Convert to integer
   const result = operate(num1, operator, num2);
-  resultElement.textContent = result;
-  inputElement.value = result;
+  if (isNaN(result)) {
+    resultElement.textContent = "Invalid input";
+  } else {
+    resultElement.textContent = result;
+    inputElement.value = result;
+  }
 });
 
 const dotButton = document.getElementById("dot");
